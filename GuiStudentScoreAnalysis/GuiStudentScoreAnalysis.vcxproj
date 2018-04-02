@@ -114,6 +114,7 @@
     </QtRcc>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AddTestDetial.cpp" />
     <ClCompile Include="BeginWidget.cpp" />
     <ClCompile Include="Generate.cpp" />
     <ClCompile Include="GuiStudentScoreAnalysis.cpp" />
@@ -130,10 +131,12 @@
   <ItemGroup>
     <QtMoc Include="TestDetialWidget.h" />
     <QtMoc Include="beginWidget.h" />
+    <QtMoc Include="AddTestDetial.h" />
     <ClInclude Include="Generate.h" />
     <QtMoc Include="GuiStudentScoreAnalysis.h" />
   </ItemGroup>
   <ItemGroup>
+    <QtUic Include="AddTestDetialWidget.ui" />
     <QtUic Include="beginWidget.ui" />
     <QtUic Include="GuiStudentScoreAnalysis.ui" />
     <QtUic Include="newStuedntWidget.ui" />

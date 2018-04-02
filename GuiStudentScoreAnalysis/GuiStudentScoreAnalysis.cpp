@@ -1,6 +1,7 @@
 #include "GuiStudentScoreAnalysis.h"
 #include"StudentDetialWidget.h"
 #include"newStuedntWidget.h"
+#include"AddTestDetial.h"
 #include"TestDetialWidget.h"
 #include<qfiledialog.h>
 #include<qinputdialog.h>
@@ -232,25 +233,32 @@ void GuiStudentScoreAnalysis::menuAct(QAction * a) {
 
 	}
 	if (p == "AddTest") {
-		int level = -1;
-		level = QInputDialog::getInt(this, "AddTest", "Level", QLineEdit::Normal);
-		if (level != -1) {
+		int level = 0;
+		level = QInputDialog::getInt(this, "AddTest", "level", QLineEdit::Normal);
+		if (level > 0) {
 			bool ok;
-			string name = QInputDialog::getText(this, "AddTest", "TestSubject", QLineEdit::Normal, "", &ok).toStdString();
+			string name = QInputDialog::getText(this, "AddTest", "subject", QLineEdit::Normal, "", &ok).toStdString();
 			if (ok&&name != "") {
-				for (g->iter = g->subList.begin(); g->iter != g->subList.end(); g->iter++) {
-					subjectList *te = *(g->iter);
-					if (te->getLevel() != level && te->getName() != name) {
+				
+				
 						//打开创建
-					}
-				 }
-
+						AddTestDetialWidget *add = new AddTestDetialWidget();
+						add->attach(g);
+						add->sendInfo(level, name);
+						add->setList();
+						add->show();
+					
 			}
-		}
-		
-	}
 
+		}
+	}
+	else {
+		return;
+	}
+		
 }
+
+
 
 
 void GuiStudentScoreAnalysis::openStudentPanel(int r, int c) {
